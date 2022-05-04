@@ -1,0 +1,5 @@
+The gfx library is necessary to compile labs 9, 10.
+The gfx2 library is necessary to compile lab 11.
+
+Linux: gfx.o, gfx2.o
+Mac: gfx_mac.o, gfx2_mac.o
