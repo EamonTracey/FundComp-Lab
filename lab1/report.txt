@@ -1,0 +1,8 @@
+Fundamentals of Computing Lab 1 Report
+Eamon Tracey
+
+My program for part 2 computes the magnitude of a 3-dimensional vector given its x, y, and z components.
+
+The program first prints a message stating its purpose. Then, it asks the user to input 3 doubles, reading each double using the scanf function. Finally, the program computes the magnitude given the 3 inputs. It uses the sqrt function from the math library.
+
+I verified the program's correctness using known Pythagorean quadruples such as (2, 10, 11, 15) and (2, 7, 26, 27). The program works for negative numbers and decimals.

@@ -1,0 +1,8 @@
+Fundamentals of Computing Lab 3 Report
+Eamon Tracey
+
+The user inputs a number 1-5. 1 corresponds to addition. 2 corresponds to subtraction. 3 corresponds to multiplication. 4 corresponds to division. The program then prompts the user to enter 2 numbers and displays a solved equation using the 2 numbers and chosen operator. If the initial input is 5, the program stops. If the initial input is not in the range [1, 5], the program displays an error message and reprompts. If the user tries to divide by 0, the program displays an error message and reprompts.
+
+The program defines 4 (non-main) functions: add, subtract, multiply, divide. Each returns void and takes 2 doubles as parameters. Each function contains exactly one line to print the equation given the numbers and operator. The main function contains a while loop with condition that the user input does not equal 5. The program checks if the user inputs outside [1, 5] and continues the loop if so. It then reads the 2 numbers and uses if-else-if blocks to choose the correct function.
+
+I ensured the computer calculates the correct values for each function. I also ensured the program would exit if a 5 were input as an option. Lastly, I ensured error messages would display when an invalid option were selected or the user attempts division by zero.

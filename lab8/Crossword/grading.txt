@@ -1,0 +1,68 @@
+
+Attempts:
+Inserted FIGHTINGIRISH
+Inserted PROGRAMMING
+Inserted NOTREDAME
+Inserted FUNCTION
+Inserted KEYBOARD
+Inserted COMPUTER
+Inserted LOOP
+Inserted CODE
+Inserted NOT
+Inserted CSE
+Inserted UND
+Skipped IF
+Skipped IF
+
+Crossword Solution:
+–––––––––––––––––
+|...............|
+|..........K....|
+|....COMPUTER...|
+|........N.Y.C..|
+|LOOP....D.B.S..|
+|...R.N...CODE..|
+|...O.O....A....|
+|.FIGHTINGIRISH.|
+|.U.R.R.O..D....|
+|.N.A.E.T.......|
+|.C.M.D.........|
+|.T.M.A.........|
+|.I.I.M.........|
+|.O.N.E.........|
+|.N.G...........|
+–––––––––––––––––
+
+Crossword Puzzle:
+–––––––––––––––––
+|###############|
+|########## ####|
+|####        ###|
+|######## # # ##|
+|    #### # # ##|
+|### # ###    ##|
+|### # #### ####|
+|#             #|
+|# # # # ## ####|
+|# # # # #######|
+|# # # #########|
+|# # # #########|
+|# # # #########|
+|# # # #########|
+|# # ###########|
+–––––––––––––––––
+
+Clues:
+Position | Type   | Clue
+–––––––––*––––––––*––––––––––––––––
+8 , 2    | Across | ISHIHIRTGGNFI
+5 , 4    | Down   | PGRRMAGMINO
+6 , 6    | Down   | MTRNEEAOD
+8 , 2    | Down   | CONFNITU
+2 , 11   | Down   | AEYORDBK
+3 , 5    | Across | CUETPROM
+5 , 1    | Across | LOPO
+6 , 10   | Across | ECOD
+8 , 8    | Down   | TNO
+4 , 13   | Down   | SEC
+3 , 9    | Down   | UDN

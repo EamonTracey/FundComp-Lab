@@ -1,0 +1,6 @@
+Fundamentals of Computing Lab 2 Report
+Eamon Tracey
+
+For Part 3, I decided to plot the graph y = 10 * (e^(sin(x)) * cos(x) + 1.5) for x from 0 to 19.8. The program links the math library to use exponential and trigonometric functions. It uses a for loop with 0.2 increment in [0, 19.8] as function inputs to generate output values. A nested for loop prints asterisks according to the output value. Further, in each outer for loop iteration, the program checks if a maximum/minimum was found and assigns accordingly to variables min_x, min_y, max_x, max_y.
+
+I ensured with Desmos that the function is always greater than 0 to limit the problem to positive y values. I also cross-checked various values, including the maximum and minimum, to ensure correct values were computed.

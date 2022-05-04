@@ -1,0 +1,23 @@
+Eamon Tracey (etracey)
+FundComp Lab 4 report.txt
+
+The ndfootball.c program provides 12 options to the user to analyze ND football wins/losses in the years 1900-2021 (inclusive). The options are:
+–––
+Record for a given year
+Record for a given year range
+Win/loss percentage for a given year
+Win/loss percentage for a given year range
+Years with exactly n wins
+Years with exactly n losses
+Years with at least n wins
+Years with at least n losses
+Years with at most n wins
+Years with at most n losses
+Years with a winning record
+Years with a losing record
+–––
+The user inputs a number 1-12 to select an option. If the user inputs 13, the program exits. The program continues prompting for a choice until the user decides to exit.
+
+The program contains 12 non-main functions, one for each option. The main function prompts the user for a choice and uses a while loop to continue prompting until the user selects option 13. Inside the while loop, a switch statement is used to determine which function to execute. The switch default is to print an error message to enter a valid option. For options that require the user inputting a year, the program displays an error message if the user enters a year not in the range [1900, 2021]. The program acquires the win/loss data by first importing a header file (nd_data.h) with integer arrays `wins` and `losses`. 
+
+I evaluated the program for correctness by choosing each option and reaffirming correct results by Googling ND football records and stats. I also input values that should display error messages (e.g., year 2022) and confirmed the proper error message displays.

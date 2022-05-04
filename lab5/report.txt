@@ -1,0 +1,36 @@
+Eamon Tracey (etracey)
+Fundamentals of Computing Lab 5 report.txt
+
+For Part 2, I wrote a program mysayings.c that manages a database of sayings. The program first asks for the filepath to the database. This file may be blank or contain one saying (max 256 words) on each line. Given a valid filepath (otherwise an error is displayed and the program exits), the program displays a menu with 7 options:
+––––––––––
+1) Display all database sayings
+2) Display database size
+3) Display sayings containing substring
+4) Enter new saying into database
+5) Swap two sayings
+6) Save database to file
+7) Exit
+––––––––––
+Option 1 prints all sayings. Option 2 printst the number of sayings. Option 3 prompts the user for a word and displays all sayings containing the given word. Option 4 prompts the user to enter a saying and appends it to the database. Option 5 prompts the user for two indices and swaps the order of sayings at those indices. Option 6 prompts the user for a filepath to save the databse. Option 7 gracefully exits the program.
+
+Internally, mysayings.c uses stdio and string libraries. It first defines constants as given by the problem statement. In the main function, mysayings.c prompts the user for a filepath. If the file is invalid, an error message is displayed. Otherwise, the file is loaded into a 2D char array using fgets. mysayings.c defines 5 non-main functions:
+––––––––––
+display_all
+display_sayings_with_word
+enter_new_saying
+swap_two_sayings
+save_database_to_file
+––––––––––
+The functions are called corresponding to the user-selected option, handled by a switch statement in an infinite loop. All functions take the database and size of database as parameters (exception: enter_new_saying instead takes an int pointer so it can increment the database size).
+
+display_all (for) loops through the database and prints each saying.
+
+display_sayings_with_word (for) loops through the database and only prints sayings that contain the user-input word. It uses strstr to check this condition.
+
+enter_new_saying uses fgets to read a saying from stdin. Before fgets is called, the function calls fgetc(stdin) to clear the newline char left from scanf. enter_new_saying also uses strcpy to copy the saying into the database.
+
+swap_two_sayings uses strcpy to copy sayings to different positions in the database. A tmp variable is used to hold one saying while the first is copied.
+
+save_database_to_file uses fputs to write each saying to a file, and fputc to write a newline after each saying to the file.
+
+I verified the output of the program is correct by testing all options. I confirmed each option successfully performs its designated task and each option can be reused (and used after using other options). I also confirmed that correct error messages display when the user inputs invalid input. Finally, I tested the program with various starting files, including a blank file and a file that already contains multiple sayings.

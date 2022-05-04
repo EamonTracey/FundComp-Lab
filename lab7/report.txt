@@ -1,0 +1,71 @@
+Eamon Tracey (etracey)
+FundComp Lab 7 report.txt
+
+In part 2, the user inputs a filepath to a CSV of state abbreviations, names, capitals, and founding years. The user may input the filepath as a command line argument or within the program (if the proper argument is not passed). If a valid file is input, the user is prompted with 8 options:
+–––––
+1) All states
+2) All states (by founding year)
+3) State from abbreviation
+4) State's capital
+5) State's founding year
+6) States founded in year
+7) States founded in year range
+8) Quit
+–––––
+If the user selects:
+1 -> Display all states in a table
+2 -> Display all states in a table, ordered by year founded
+3 -> Display state information given its abbreviation
+4 -> Display state capital given name/abbreviation
+5 -> Display state founding year given name/abbreviation
+6 -> Display states founded in given year
+7 -> Display states founded in given year range (inclusive)
+8 -> Exit the program
+
+Internally, the program is broken into 3 files: usastates.c, states.h, states.c.
+
+usastates.c:
+This file contains the main function. It checks for a singular command line argument containing the path to a states CSV. If no filepath argument is given, it prompts the user for one. Then, it passes the filepath to the smain function defined in states.c.
+
+states.h:
+This file defines the type State as a struct containing 3 cstrings (abbreviation, name, capital) and 1 int (year). It also declares the function prototypes defined in states.c.
+
+states.c:
+This file contains the bulk of the program. It defines 10 non-main functions:
+–––––
+int smain(char[]);
+void fload_states(State[], FILE *);
+void disp_states(State[], int);
+void swap_states(State *, State *);
+void disp_ostates(State[], int);
+void state_from_abbr(State[], int);
+void state_capital(State[], int);
+void state_year(State[], int);
+void states_in_year(State[], int);
+void states_in_year_range(State[], int);
+–––––
+smain -> smain accepts path to CSV file as an argument. The file is checked for validity. Then an array of states is loaded from the CSV. A menu of user options is printed. A switch statement in a while loop handles the user input option until the user wants to quit.
+
+fload_states -> fload_states uses fgets to read each line of the CSV. strtok is used to parse the comma-separated tokens and strcpy copies the token to its appropriate destination in a states array. atoi is used to convert the year string to an int.
+
+disp_states -> disp_states displays a states array in a table format, using format specifiers.
+
+disp_ostates -> disp_ostates displays a states array in ascending order by year founded. It uses a bubble sort algorithm to sort the states by year. Bubble sort works by checking each consecutive pair of states in an array and swapping the pair elements if necessary. The sort repeats this process until it does not swap any pairs, indicating a sorted array. disp_states is used to display the ordered array.
+
+swap_states -> swap_states swaps 2 State variables.
+
+state_from_abbr -> state_from_abbr uses disp_states to display a state given its abbreviation (case-insensitive). If the abbreviation is invalid, an error message is shown.
+
+state_capital -> state_capital displays a state's capital given its name or abbreviation (case-insensitive). If the input is neither a valid name nor abbreviation, an error message is shown.
+
+state_year -> state_year displays a state's founding year given its name or abbreviation (case-insensitive). If the input is neither a valid name nor abbreviation, an error message is shown.
+
+states_in_year -> states_in_year uses disp_states to display the states founded in a given year. If no states were founded in the year, an appropriate message is shown.
+
+states_in_year_range -> states_in_year uses disp_states to display the states founded in a given year range. If no states were founded in the year range, an appropriate message is shown.
+
+NOTE: strcasecmp is used to check case-insensitive string equality.
+
+A Makefile is provided to compile the program (`make`).
+
+I verified the program's effectiveness by testing each option multiple times, with various input, and in different orders. All tests passed.

@@ -1,0 +1,52 @@
+Eamon Tracey (etracey)
+FundComp Lab 6 report.txt
+
+The program is split into 3 files: playlife.c, lifefunc.c, and lifefunc.h.
+
+lifefunc.h declares function prototypes. There are 11 non-main functions:
+
+void play_interactive();
+void play_batch(char[]);
+void initialize_board(char[][SIZE]);
+void liven_cell(char[][SIZE], int, int);
+void kill_cell(char[][SIZE], int, int);
+void copy_board(char[][SIZE], char[][SIZE]);
+void update_display(char[][SIZE]);
+void advance_game(char[][SIZE]);
+int number_neighbors(char[][SIZE], int, int);
+void play_forever(char[][SIZE]);
+void clear();
+
+lifefunc.h also declares constants LCHAR (live character) and SIZE. Hardcoded values are 'x' and 40 respectively.
+
+1) play_interactive starts the game, asking for user input. A game_board variable is initialized and the display is shown. The user is prompted for input and the input is handled through a switch statement. A while loop with boolean flag play keeps the program running and accepting user input until 'q' is input. An error message is displayed if the user inputs an invalid coordinate (valid coordinate values are elements in [0, 39]) using the 'a' or 'r' option.
+2) play_batch starts the game given an input file. The file is verified to exist. Then, a game_board variable is initialized. Using a while loop and fgets, each line of the input file is read and handled by a switch statement, similar to play_interactive. The program will not display anything if the input file does not have a p command.
+3) initialize_board sets a 2D char array to all dead cells.
+4) liven_cell makes a cell alive at a given coordinate by setting its value to LCHAR.
+5) kill_cell kills a cell at a given coordinate by setting its value to ' '.
+6) copy_board copies a 2D char array to another variable. This is used once to store the initial conditions of a board while it is updated.
+7) update_display prints the game display. For loops are used to print the top and bottom of the box and doubly nested for loops print each cell.
+8) advance_game modifies a 2D char array by the rules of the game, namely that a dead cell with exactly 3 neighbors becomes live and only a live cell with 2 or 3 neighbors survives, all others die. Before modifying elements, the array is copied to a new array so the initial conditions are preserved for evaluation.
+9) number_neighbors counts the number of live cells touching a given cell. This becomes complicated when dealing with the edge cases of cells on the boundaries. To solve this, the program checks the cell's position and assigns minimum/maximum x and y values to check. It then iterates through those values (ignoring the cell itself), checking for life. It is worth noting that x and y directions are defined as straight down and straight right, respectively.
+10) play_forever continuously advances the gamae and updates the display, sleeping 0.2 seconds between generations, using usleep from unistd.h.
+11) clear clears the screen with a system command.
+
+lifefunc.c contains the function definitions.
+
+playlife.c includes lifefunc.h. It checks the number of arguments with argc to determine whether to use play_interactive (1 argument), play_batch (2 arguments), or display an error (neither 1 nor 2 argument(s)).
+
+Finally, the Makefile contains compilation rules. `make` compiles the program.
+
+The starting conditions I used for scenes 1-5 were taken mostly from the Conway's Game of Life Wikipedia page https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life.
+
+scene1.txt: A block form of four live cells in a square remains stable. A bee-hive form of 6 live cells around 2 dead cells remains stable. A tub form of four live cells around 1 dead cell remains stable. A boat form, equivalent to the tub form plus one live cell in a corner remains stable.
+
+scene2.txt: A blinker form of 3 colinear, adjacent live cells oscillates with period 2. A toad form of 2 blinkers stacked on top of each other, one shifted one cell to the right/left, oscillates with period 2. A beacon form of 2 block forms diagonally adjacent oscillates with period 2. A penta-decathlon form oscillates with period 15.
+
+scene3.txt: A light-weight spaceship travels to the right. A middle-weight spaceship travels to the left. A glider travels diagonally, down and right. A glider with different orientation travels diagonally, up and left.
+
+scene4.txt: The diehard form begins with 7 live cells and survives through 130 generations until completely dying out.
+
+scene5.txt: The Gosper glider gun form produces gliders indefinitely. The gun produces its first glider on the 15th generation, and a subsequent glider every 30th generation.
+
+The program is verified for correctness by testing various starting conditions and comparing them with online versions. All tests pass.
